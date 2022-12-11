@@ -53,4 +53,4 @@ proyecto/estadiatdf/migrations/
 venv/
 
 # Ignorar Imagenes de Documentación
-proyecto/media/documentacion
+# proyecto/media/documentacion
