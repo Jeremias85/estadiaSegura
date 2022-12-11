@@ -13,9 +13,9 @@ Instalar los requerimientos del sistema:
 
 Generar la base de datos:
 
-`py manage.py makemigrations`
+`py manage.py makemigrations estadiatdf`
 
-`py manage.py migrate`
+`py manage.py migrate estadiatdf`
 
 Carga inicial:
 
