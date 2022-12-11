@@ -15,7 +15,7 @@ Generar la base de datos:
 
 `py manage.py makemigrations estadiatdf`
 
-`py manage.py migrate estadiatdf`
+`py manage.py migrate`
 
 Carga inicial:
 
