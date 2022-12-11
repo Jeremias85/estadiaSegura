@@ -51,6 +51,3 @@ proyecto/estadiatdf/migrations/
 
 # Virtual Environment
 venv/
-
-# Ignorar Imagenes de Documentación
-#proyecto/media/documentacion
