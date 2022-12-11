@@ -1,0 +1,44 @@
+{% extends "infuetur/base_index.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm">
+            <h1 class="text-center">Configurar pedido de desayuno</h1>
+        <form class="form-horizontal" method="POST" action="">
+            {% csrf_token %}
+            <h3 class="text-center">Items de desayuno disponibles</h3>
+        <div class="card">
+            <div class="card-body">
+            {{ formset.management_form }}
+            <div class='row'>
+            {% for form in formset %}
+                {% if not forloop.last %}        
+                    <div class='col-sm-3'>
+                        {{ form.nombre }}
+                        {{ form.activo }}
+                    </div>  
+                {% endif %}
+            {% endfor %}
+            </div>
+            </div>
+            </div>
+            <br>
+            <div class="m-3 row text-end">
+                <div class="col-sm">    
+                    <a id="volver" href="{% url 'inicio'%}" class="btn btn-secondary">Volver</a>    
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+
+        let elements = document.getElementsByTagName("INPUT");
+        //document.getElementById("demo").innerHTML = elements[1].tagName;
+        elements.classList.add("form-select");
+        
+
+</script>
+{% endblock %}

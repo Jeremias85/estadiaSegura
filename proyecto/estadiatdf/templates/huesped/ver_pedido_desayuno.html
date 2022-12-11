@@ -1,0 +1,82 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm">
+    {% if reserva %}
+        {% if pedido %}
+        <h1 class="text-center">Pedido de desayuno</h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Fecha
+                    </p>
+                    <h2 class="h4resaltado">
+                        <strong>{{ pedido.fechaDesayuno }}</strong>
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Hora
+                    </p>
+                    <h2 class="h4resaltado">
+                        <strong>{{ pedido.horaDesayuno }}</strong>
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Modalidad
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if pedido.takeaway %}
+                            Take away
+                        {% else %}
+                            Desayuno en sal&oacute;n
+                        {% endif %}
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Comentario
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if pedido.comentario %}
+                            {{ pedido.comentario }}
+                        {% else %}
+                            Sin comentarios
+                        {% endif %}
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Items pedidos
+                    </p>
+                    {% for item in ItemsPedido %}
+                    <h2 class="h4resaltado">
+                        {{ item.cantidad }} x {{ item.configuracionDesayuno }}
+                    </h2>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-2">   
+            {% if modificable %}      
+                <a href="{% url 'modificarPedidoDesayuno' pk=pedido.id %}" class="btn btn-lg btn-block btn-success">Modificar Pedido de desayuno</a>        
+            {% endif %}
+            <a href="{% url 'miDesayuno' %}" class="btn btn-lg btn-block btn-danger">Volver</a>
+        </div>
+        {% else %}
+                <div class="col-sm">
+                    <h1 class="text-center">No existe el pedido</h1>
+                </div>
+        {% endif %}
+    {% else %}
+            <div class="col-sm">
+                <h1 class="text-center">No tiene acceso a la aplicaci&oacute;n</h1>
+            </div>
+    {% endif %}
+    </div>
+</div>
+
+{% endblock %}

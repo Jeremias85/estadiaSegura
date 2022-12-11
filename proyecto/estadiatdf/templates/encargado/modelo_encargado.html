@@ -1,0 +1,24 @@
+{% extends "infuetur/base_index.html" %}
+
+{% block content %}
+
+{% load auth_extras %}
+
+    <div class="container-fluid">
+    {% if user.is_authenticated %}
+
+        {% if request.user|has_group:"Responsable" %}
+
+        
+        {% else %}
+                <h1>No tiene asignado ning&uacute;n alojamiento</h1>
+            {% endif %}
+
+
+    {% else %}
+        <h1>No tiene acceso a este contenido, por favor ingrese con un usuario v&aacute;lido.</h1>
+    {% endif %}
+
+    </div>
+
+{% endblock %}

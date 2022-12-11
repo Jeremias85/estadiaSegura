@@ -1,0 +1,223 @@
+{% extends "infuetur/base_index.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+{% load auth_extras %}
+<div class="container-fluid">
+    <h1>{{ alojamiento.nombre }}</h1>
+    <div class="row">
+        
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                            {% if alojamiento.image_url %}
+                                <img src="{{alojamiento.image_url|cut:'/mdc'}}" style='height: 50%'>
+                            <br>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+            <p></p>
+        </div>
+        <div class="col-sm">
+            
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm">
+                            <p class="ptitulo">Nombre del alojamiento</p>
+                            <h4 class="h4resaltado">{{ alojamiento.nombre }}</h4>
+                        </div>
+                        <div class="col-sm">
+                                <p class="ptitulo">Suit ID</p>
+                                <h4 class="h4resaltado">{{ alojamiento.suit_id }}</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p class="ptitulo">Ciudad</p>
+                            <h4 class="h4resaltado">{{ alojamiento.localidad }}</h4>
+                        </div>
+                        <div class="col-sm">
+                            <p class="ptitulo">Direcci&oacute;n</p>
+                            <h4 class="h4resaltado">{{ alojamiento.domicilio }}</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p class="ptitulo">CUIT</p>
+                            <h4 class="h4resaltado">{{ alojamiento.cuit }}</h4>
+                        </div>
+                        
+                        {% if responsable %}
+                        <div class="col-sm">
+                            <p class="ptitulo">Usuario responsable</p>
+                            <h4 class="h4resaltado">{{ responsable.username }}</h4>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Deshabilitar usuario
+                            </button>
+                        </div>
+                        {% else %}
+                        <div class="col-sm">
+                            <p class="ptitulo">Usuario responsable</p>
+                            <h4 class="h4resaltado">No se ha asignado a ning&uacute;n responsable</h4>
+                        </div>
+                        {% endif %}
+                        <p></p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <p class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    Contacto
+                                </button>
+                                </p>
+                                <div id="collapseTwo" class="accordion-collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="row">
+                                            {% for contacto in contactos %}
+                                            <div class="col-sm">
+                                                <p class="ptitulo">{{ contacto.tipo }}</p>
+                                                <h4 class="h4resaltado">{{ contacto.valor }}</h4>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row text-end">
+                        <div class="col-sm">
+                            <p></p>
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Enviar link de registro a
+                                </button>
+                                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        {% if emails %}
+                                            {% for email in emails %}
+                                                <li><button class="dropdown-item" type="button" id="email-valor" class="btn btn-primary" data-email-registrado="{{ email.valor }}" data-bs-toggle="modal" data-bs-target="#emailRegistrado">
+                                                    {{ email.valor }}
+                                                    </button>
+                                                </li>
+                                            {% endfor %}
+                                        {% else %}
+                                            <li><a class="dropdown-item" href="#">No se registra email</a></li>
+                                        {% endif %}
+                                        <li><button class="dropdown-item" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoEmail">
+                                            otro correo
+                                            </button>
+                                        </li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">¿Est&aacute; seguro de deshabilitar al usuario?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post">
+                <div class="modal-body">
+                    Recuerde que el usuario no tendr&aacute; m&aacute;s acceso al sistema y el establecimiento deber&aacute;
+                    pedir nuevamente un link de registro.
+                        {% csrf_token %}
+                        <input id="id" type="hidden" name="id" value={{responsable.id}} readonly class="form-control-plaintext">
+                </div>
+                <div class="modal-footer">
+                    <div class="mb-3 row text-end">
+                        <div class="col-sm">    
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                        <div class="col-sm">
+                            <button type="submit" name="eliminarResponsable" class="btn btn-block btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="nuevoEmail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Ingresar nuevo correo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post">
+                <div class="modal-body">
+                    {% csrf_token %}
+                    {{ form }}
+                </div>
+                <div class="modal-footer">
+                    <div class="mb-3 row text-end">
+                        <div class="col-sm">    
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                        <div class="col-sm">
+                            <button type="submit" name="enviarEmail" class="btn btn-block btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="emailRegistrado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">¿Desea enviar el link al siguiente correo?:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post">
+                <div class="modal-body">
+                    {% csrf_token %}
+                    <input id="email" type="text" name="email" readonly class="form-control-plaintext">
+                </div>
+                <div class="modal-footer">
+                    <div class="mb-3 row text-end">
+                        <div class="col-sm">    
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                        <div class="col-sm">
+                            <button type="submit" name="enviarEmail" class="btn btn-block btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //triggered when modal is about to be shown
+            $('#emailRegistrado').on('show.bs.modal', function(e) {
+            //get data-id attribute of the clicked element
+            var email = $(e.relatedTarget).data('email-registrado');
+            //var email = "jere"
+            //populate the textbox
+            $(e.currentTarget).find('input[name="email"]').val(email);
+            });
+        });
+    </script>
+</div>
+{% endblock %}

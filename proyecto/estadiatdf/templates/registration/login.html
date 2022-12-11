@@ -1,0 +1,69 @@
+{% extends "bienvenida/base_bienvenida.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-auto">
+            {% if form.errors %}
+            <div class="alert alert-warning" role="alert">
+                Tu nombre de Usuario y Contraseña no concuerdan.
+            </div>
+            {% endif %}
+
+            {% if next %}
+                {% if user.is_authenticated %}
+                <div class="alert alert-warning" role="alert">
+                    Tu cuenta no tiene acceso a esta página.
+                    Para seguir por favor ingresa con un nombre de Usuario que tenga acceso.
+                </div>
+                {% else %}
+                    <div class="alert alert-info" role="alert">
+                        Por favor, ingres&aacute; nombre de Usuario y Contraseña para ingresar.
+                    </div>
+                {% endif %}
+            {% else %}
+            <!-- Primera vez que se ingresa, todavía no ingresó usuario ni contraseña-->
+            <div class="alert alert-info" role="alert">
+                Por favor, ingres&aacute; nombre de Usuario y Contraseña para ingresar.
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm"></div>
+        <div class="col-sm-auto">
+            <div class="card">
+                <div class="card-body">
+                        <div class="col-sm">
+                            <form class="form-signin" method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
+                                <div class="mb-3 mx-1 row">
+                                    <label for="inputUsuario" class="form-label">Usuario</label>
+                                        {{form.username}}
+                                </div>
+                                <div class="mb-3 mx-1 row">
+                                    <label for="inputPassword" class="form-label">Contrase&ntilde;a</label>
+                                        {{form.password}}
+                                </div>
+                                <div class="mb-3 mx-1 row">
+                                    <div class="col-sm align-self-center">{# Assumes you setup the password_reset view in your URLconf #}
+                                        <a href="{% url 'password_reset' %}">¿Perdiste la contraseña?</a>
+                                    </div>
+                                    <div class="col-sm-auto">
+                                        <input type="submit" class="btn btn-primary" value="Ingresar" />
+                                        <input type="hidden" name="next" value="{% url 'inicio' %}" />
+                                    </div>
+                                </div>              
+                            </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm"></div>
+    </div>
+</div>
+{% endblock %}

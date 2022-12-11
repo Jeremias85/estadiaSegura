@@ -1,0 +1,94 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm">
+    {% if not autorizado %}
+        <h1 class="text-center">Usted no est&aacute; autorizado</h1>
+    {% else %}
+        <h1 class="text-center">Declaraci&oacute;n jurada Covid</h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Lugar de procedencia
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if not declaracionJurada.procedencia %}
+                            Sin contestar
+                        {% else %}
+                            {{ declaracionJurada.procedencia }}
+                        {% endif %}
+                    </h4>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        ¿Ha estado en alguna de las zonas de riesgo de COVID 19 en los últimos 14 días?
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if declaracionJurada.zona_riesgos %}
+                            Si
+                        {% else %}
+                            No
+                        {% endif %}
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        ¿Ha tenido síntomas que podrían estar asociados al COVID 19 en los últimos 14 días?
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if declaracionJurada.sintomas %}
+                            Si
+                        {% else %}
+                            No
+                        {% endif %}
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        ¿Ha estado en contacto en los últimos 14 días con personas en las que se ha confirmado estar infectadas por COVID 19?
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if declaracionJurada.contacto_covid %}
+                            Si
+                        {% else %}
+                            No
+                        {% endif %}
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        ¿Ha acudido en los últimos 14 días a un centro médico u hospitalario como consecuencia de síntomas que podrían estar asociados al COVID 19 y se ha descartado por los facultativos el contagio?
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if declaracionJurada.acudido_medico %}
+                            Si
+                        {% else %}
+                            No
+                        {% endif %}
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        ¿Tiene motivos para sospechar que podría estar infectado por COVID 19?
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if declaracionJurada.sospecha %}
+                            Si
+                        {% else %}
+                            No
+                        {% endif %}
+                    </h2>          
+                </div>
+            </div>
+        </div>
+
+    <div class="d-grid gap-2">       
+        <a id="volver" href="{% url 'modificarDJCovid' pk=declaracionJurada.ficha_ingreso_id %}" class="btn btn-lg btn-block btn-success">Modificar Declaraci&oacute;n Jurada Covid</a>
+        <a id="volver" href="{% url 'verFichaIngreso' pk=declaracionJurada.ficha_ingreso_id %}" class="btn btn-lg btn-block btn-danger">Volver</a>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

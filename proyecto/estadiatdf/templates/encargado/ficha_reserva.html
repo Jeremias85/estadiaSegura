@@ -1,0 +1,315 @@
+{% extends "infuetur/base_index.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% load auth_extras %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+            <h1>Detalles de la reserva</h1>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="row">
+                                <p class="ptitulo">Nombre del hu&eacute;sped</p>
+                                <h4 class="h4resaltado">{{ reserva.nombre_huesped }}</h4>
+                            </div>
+                            <div class="row">
+                                <p class="ptitulo">Cantidad de pax</p>
+                                <h4 class="h4resaltado">{{ reserva.pax }}</h4>
+                            </div>
+                            <div class="row">
+                                <p class="ptitulo">Origen de la reserva</p>
+                                <h4 class="h4resaltado">{{ reserva.origen_reserva }}</h4>
+                            </div>
+                            <div class="row">
+                                <p class="ptitulo">C&oacute;digo de la reserva</p>
+                                <h4 class="h4resaltado">{{ reserva.codigo_reserva }}</h4>
+                            </div>
+                            <div class="row">
+                                <p class="ptitulo">Estado de Solicitud de Ingreso R&aacute;pido</p>
+                                <h4 class="h4resaltado">
+                                    {% if reserva.solicitudingresorapido %}
+                                        {{ reserva.solicitudingresorapido.estado }}
+                                    {% else %}
+                                        No solicitado
+                                    {% endif%}
+                                </h4>
+                            </div>
+                        </div>
+
+                        <div class="col-sm">
+                            <div class="row">
+                                <p class="ptitulo">Check-in</p>
+                                <h4 class="h4resaltado">{{ reserva.fecha_check_in }}</h4>
+                            </div>
+                            <div class="row">
+                                <p class="ptitulo">Check-out</p>
+                                <h4 class="h4resaltado">{{ reserva.fecha_check_out }}</h4>
+                            </div>
+                            <div class="row">
+                                <p class="ptitulo">Reservado</p>
+                                <h4 class="h4resaltado">{{ reserva.fecha_reservado }}</h4>
+                            </div>
+                            <div class="row">
+                                <p class="ptitulo">Comentario</p>
+                                <h4 class="h4resaltado">{{ reserva.comentario }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row text-end">
+                        <div class="col-sm">
+                                {% if reserva.solicitudingresorapido %}
+                                    <a class="btn btn-success mb-1" data-bs-toggle="modal" data-bs-target="#exampleModal" role="button">
+                                        Modificar estado de Solicitud
+                                    </a>
+                                {% endif%}
+                                
+                                <button class="btn btn-success mb-1" type="button" data-bs-toggle="modal" data-bs-target="#enviarLink">
+                                    Enviar link de invitaci&oacute;n al huesped
+                                </button>
+                                <a class="btn btn-success mb-1" href="{% url 'modificarReserva' pk=reserva.id %}" role="button">
+                                    Modificar Reserva
+                                </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div>
+                                <p class="ptitulo">Link de acceso a la reserva para el hu&eacute;sped:</p>
+                                <!--<h4 class="h4resaltado">https:/estadiasegura.tur.ar/reserva.html&t={{ reserva.token }}</h4>-->
+                                <h3 class="h4resaltado">http://127.0.0.1:8000/reserva/?token={{ reserva.token }}</h3>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <h1>Fichas de ingreso</h1>
+            {% if fichasIngreso %}
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="accordion accordion-flush" id="accordionFlush">
+                            {% for ficha in fichasIngreso %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-heading{{ficha.id}}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ficha.id}}" aria-expanded="false" aria-controls="flush-collapse{{ficha.id}}">
+                                        <h3>{{ficha.nombre}} {{ficha.apellido}}</h3>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapse{{ficha.id}}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ficha.id}}" data-parent="#accordionFlush">
+                                    <div class="accordion-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    <div>
+                                                        <h3>Datos personales</h3>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm">
+                                                            <div class="row">
+                                                                <p class="ptitulo">Nombre del hu&eacute;sped</p>
+                                                                <h4 class="h4resaltado">{{ ficha.nombre }} {{ ficha.apellido }}</h4>
+                                                            </div>
+                                                            <div class="row">
+                                                                <p class="ptitulo">Nacionalidad</p>
+                                                                <h4 class="h4resaltado">
+                                                                    {% if not ficha.nacionalidad %}
+                                                                        Sin contestar
+                                                                    {% else %}
+                                                                        {{ ficha.nacionalidad }}
+                                                                    {% endif %}
+                                                                </h4>
+                                                            </div>
+                                                            <div class="row">
+                                                                <p class="ptitulo">Domicilio</p>
+                                                                <h4 class="h4resaltado">
+                                                                    {% if not ficha.domicilio %}
+                                                                        Sin contestar
+                                                                    {% else %}
+                                                                        {{ ficha.domicilio }}
+                                                                    {% endif %}
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="row">
+                                                                <p class="ptitulo">Documento</p>
+                                                                <h4 class="h4resaltado">{{ ficha.tipo_documento }} {{ ficha.numero_documento }}</h4>
+                                                            </div>
+                                                            <div class="row">
+                                                                <p class="ptitulo">Fecha de nacimiento</p>
+                                                                <h4 class="h4resaltado">{{ ficha.fecha_nacimiento }}</h4>
+                                                            </div>      
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                {% if ficha.foto_frente %}
+                                                <div>
+                                                    <img src="{{ficha.foto_frente.url}}" style='height: 100%; width: 100%; object-fit: contain'>
+                                                </div>
+                                                <br>
+                                                {% endif %}
+                                                {% if ficha.foto_reverso %}
+                                                <div>
+                                                    <img src="{{ficha.foto_reverso.url}}" style='height: 100%; width: 100%; object-fit: contain'>
+                                                </div>
+                                                <br>
+                                                {% endif %}
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm">
+                                                    {% if not ficha.djcovid %}
+                                                    <div class="col-sm">
+                                                        <h4 class="h4resaltado">Declaracion Jurada Covid no cargada</h4>
+                                                    </div>
+                                                    {% else %}
+                                                    <div>
+                                                        <h3>Declaraci&oacute;n jurada Covid</h3>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm">
+                                                            <div>
+                                                                <p class="ptitulo">Lugar de procedencia</p>
+                                                                <h4 class="h4resaltado">
+                                                                    {% if not ficha.djcovid.procedencia %}
+                                                                        Sin contestar
+                                                                    {% else %}
+                                                                        {{ ficha.djcovid.procedencia }}
+                                                                    {% endif %}
+                                                                </h4>
+                                                            </div>
+                                                            <div>
+                                                                <p class="ptitulo">¿Ha estado en alguna de las zonas de riesgo de COVID 19 en los últimos 14 días?</p>
+                                                                <h4 class="h4resaltado">
+                                                                    {% if ficha.djcovid.zona_riesgos %}
+                                                                        Si
+                                                                    {% else %}
+                                                                        No
+                                                                    {% endif %}
+                                                                </h4>
+                                                            </div>
+                                                            <div>
+                                                                <p class="ptitulo">¿Ha tenido síntomas que podrían estar asociados al COVID 19 en los últimos 14 días?</p>
+                                                                <h4 class="h4resaltado">
+                                                                    {% if ficha.djcovid.sintomas %}
+                                                                        Si
+                                                                    {% else %}
+                                                                        No
+                                                                    {% endif %}
+                                                                </h4>
+                                                            </div>
+                                                            <div>
+                                                                <p class="ptitulo">¿Ha estado en contacto en los últimos 14 días con personas en las que se ha confirmado estar infectadas por COVID 19?</p>
+                                                                <h4 class="h4resaltado">
+                                                                    {% if ficha.djcovid.contacto_covid %}
+                                                                        Si
+                                                                    {% else %}
+                                                                        No
+                                                                    {% endif %}
+                                                                </h4>
+                                                            </div>
+                                                            <div>
+                                                                <p class="ptitulo">¿Ha acudido en los últimos 14 días a un centro médico u hospitalario como consecuencia de síntomas que podrían estar asociados al COVID 19 y se ha descartado por los facultativos el contagio?</p>
+                                                                <h4 class="h4resaltado">
+                                                                    {% if ficha.djcovid.acudido_medico %}
+                                                                        Si
+                                                                    {% else %}
+                                                                        No
+                                                                    {% endif %}
+                                                                </h4>
+                                                            </div>
+                                                            <div>
+                                                                <p class="ptitulo">¿Tiene motivos para sospechar que podría estar infectado por COVID 19?</p>
+                                                                <h4 class="h4resaltado">
+                                                                    {% if ficha.djcovid.sospecha %}
+                                                                        Si
+                                                                    {% else %}
+                                                                        No
+                                                                    {% endif %}
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                           
+                                                    </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {%else%}
+    <p class="presaltado">El hu&eacute;sped todav&iacute;a no ha completado ninguna ficha.</p>
+    {%endif%}
+    </div>
+
+    <div class="modal fade" id="enviarLink" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Ingresar correo del huesped</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post">
+                <div class="modal-body">
+                        {% csrf_token %}
+                        {{ form|crispy }}                   
+                </div>
+                <div class="modal-footer">
+                    <div class="mb-3 row text-end">
+                        <div class="col-sm">    
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                        <div class="col-sm">
+                            <button type="submit" name="enviarEmail" class="btn btn-block btn-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %} Modal para solicitud de ingreso rápido {% endcomment %}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">Modificar estado de Solicitud de Ingreso R&aacute;pido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="post">
+            <div class="modal-body">
+                    {% csrf_token %}
+                    {{form_sir|crispy}}
+            </div>
+            <div class="modal-footer">
+                <div class="mb-3 row text-end">
+                    <div class="col-sm">    
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                    <div class="col-sm">
+                        <button type="submit" name="modificarSolicitud" class="btn btn-block btn-primary">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

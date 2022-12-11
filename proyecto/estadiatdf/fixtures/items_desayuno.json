@@ -1,0 +1,632 @@
+[
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 1,
+        "fields": {
+            "nombre": "Chocolatada",
+            "categoria": "Bebidas calientes",
+            "unidad": "Taza"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 2,
+        "fields": {
+            "nombre": "Té negro",
+            "categoria": "Bebidas calientes",
+            "unidad": "Taza"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 3,
+        "fields": {
+            "nombre": "Té verde",
+            "categoria": "Bebidas calientes",
+            "unidad": "Taza"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 4,
+        "fields": {
+            "nombre": "Café",
+            "categoria": "Bebidas calientes",
+            "unidad": "Taza"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 5,
+        "fields": {
+            "nombre": "Café descafeinado",
+            "categoria": "Bebidas calientes",
+            "unidad": "Taza"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 6,
+        "fields": {
+            "nombre": "Leche caliente",
+            "categoria": "Bebidas calientes",
+            "unidad": "Taza"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 7,
+        "fields": {
+            "nombre": "Mate cocido",
+            "categoria": "Bebidas calientes",
+            "unidad": "Taza"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 8,
+        "fields": {
+            "nombre": "Agua caliente",
+            "categoria": "Bebidas calientes",
+            "unidad": "Taza"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 9,
+        "fields": {
+            "nombre": "Jugo de manzana",
+            "categoria": "Bebidas frias",
+            "unidad": "Vaso"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 10,
+        "fields": {
+            "nombre": "Jugo de naranja",
+            "categoria": "Bebidas frias",
+            "unidad": "Vaso"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 11,
+        "fields": {
+            "nombre": "Zumo de naranja",
+            "categoria": "Bebidas frias",
+            "unidad": "Vaso"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 12,
+        "fields": {
+            "nombre": "Agua",
+            "categoria": "Bebidas frias",
+            "unidad": "Vaso"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 13,
+        "fields": {
+            "nombre": "Agua con gas",
+            "categoria": "Bebidas frias",
+            "unidad": "Vaso"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 14,
+        "fields": {
+            "nombre": "Pan blanco",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 15,
+        "fields": {
+            "nombre": "Pan de salvado",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 16,
+        "fields": {
+            "nombre": "Brioche",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 17,
+        "fields": {
+            "nombre": "Medialuna dulce",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 18,
+        "fields": {
+            "nombre": "Medialuna salada",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 19,
+        "fields": {
+            "nombre": "Brownie",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 20,
+        "fields": {
+            "nombre": "Muffin",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 21,
+        "fields": {
+            "nombre": "Budín de limón",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 22,
+        "fields": {
+            "nombre": "Bizcochuelo de vainilla",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 23,
+        "fields": {
+            "nombre": "Cupcake",
+            "categoria": "Panaderia/reposteria",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 24,
+        "fields": {
+            "nombre": "Mermelada de frutilla",
+            "categoria": "Mermeladas/dulces",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 25,
+        "fields": {
+            "nombre": "Dulce de leche",
+            "categoria": "Mermeladas/dulces",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 26,
+        "fields": {
+            "nombre": "Mermelada de calafate",
+            "categoria": "Mermeladas/dulces",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 27,
+        "fields": {
+            "nombre": "Mermelada de naranja",
+            "categoria": "Mermeladas/dulces",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 28,
+        "fields": {
+            "nombre": "Crema de cacao y avellanas",
+            "categoria": "Mermeladas/dulces",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 29,
+        "fields": {
+            "nombre": "Mermelada de sauco",
+            "categoria": "Mermeladas/dulces",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 30,
+        "fields": {
+            "nombre": "Mermelada de rosa mosqueta",
+            "categoria": "Mermeladas/dulces",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 31,
+        "fields": {
+            "nombre": "Aceite de oliva",
+            "categoria": "Aderezos",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 32,
+        "fields": {
+            "nombre": "Aceite de girasol",
+            "categoria": "Aderezos",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 33,
+        "fields": {
+            "nombre": "Aceto",
+            "categoria": "Aderezos",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 34,
+        "fields": {
+            "nombre": "Sal",
+            "categoria": "Aderezos",
+            "unidad": "Cucharita"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 35,
+        "fields": {
+            "nombre": "Mayonesa",
+            "categoria": "Aderezos",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 36,
+        "fields": {
+            "nombre": "Azúcar blanca",
+            "categoria": "Endulzante",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 37,
+        "fields": {
+            "nombre": "Edulcorante",
+            "categoria": "Endulzante",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 38,
+        "fields": {
+            "nombre": "Azúcar mascabo",
+            "categoria": "Endulzante",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 39,
+        "fields": {
+            "nombre": "Miel",
+            "categoria": "Endulzante",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 40,
+        "fields": {
+            "nombre": "Canela",
+            "categoria": "Endulzante",
+            "unidad": "Cucharita"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 41,
+        "fields": {
+            "nombre": "Jugo de limón",
+            "categoria": "Endulzante",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 42,
+        "fields": {
+            "nombre": "Jengibre",
+            "categoria": "Endulzante",
+            "unidad": "Cucharita"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 43,
+        "fields": {
+            "nombre": "Panceta",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Feta"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 44,
+        "fields": {
+            "nombre": "Queso crema",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 45,
+        "fields": {
+            "nombre": "Yogurt",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Vaso"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 46,
+        "fields": {
+            "nombre": "Manteca",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 47,
+        "fields": {
+            "nombre": "Leche descremada",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Vaso"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 48,
+        "fields": {
+            "nombre": "Jamón",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Feta"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 49,
+        "fields": {
+            "nombre": "Queso dambo",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Feta"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 50,
+        "fields": {
+            "nombre": "Huevo frito",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 51,
+        "fields": {
+            "nombre": "Huevo duro",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 52,
+        "fields": {
+            "nombre": "Leche entera",
+            "categoria": "Fiambres/lacteos",
+            "unidad": "Vaso"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 53,
+        "fields": {
+            "nombre": "Tomate cherry",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 54,
+        "fields": {
+            "nombre": "Ciruela",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 55,
+        "fields": {
+            "nombre": "Uva",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 56,
+        "fields": {
+            "nombre": "Banana",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 57,
+        "fields": {
+            "nombre": "Aceituna verde",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 58,
+        "fields": {
+            "nombre": "Aceituna negra",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 59,
+        "fields": {
+            "nombre": "Palta",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 60,
+        "fields": {
+            "nombre": "Pera",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 61,
+        "fields": {
+            "nombre": "Manzana",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 62,
+        "fields": {
+            "nombre": "Durazno",
+            "categoria": "Frutas/verduras",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 63,
+        "fields": {
+            "nombre": "Copos de maiz",
+            "categoria": "Cereales/Semillas",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 64,
+        "fields": {
+            "nombre": "Avena",
+            "categoria": "Cereales/Semillas",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 65,
+        "fields": {
+            "nombre": "Salvado",
+            "categoria": "Cereales/Semillas",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 66,
+        "fields": {
+            "nombre": "Barra de cereal",
+            "categoria": "Cereales/Semillas",
+            "unidad": "Unidad"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 67,
+        "fields": {
+            "nombre": "Granola",
+            "categoria": "Cereales/Semillas",
+            "unidad": "Cuchara"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 68,
+        "fields": {
+            "nombre": "Chía",
+            "categoria": "Cereales/Semillas",
+            "unidad": "Cucharita"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 69,
+        "fields": {
+            "nombre": "Amaranto",
+            "categoria": "Cereales/Semillas",
+            "unidad": "Cucharita"
+        }
+    },
+    {
+        "model": "estadiatdf.itemdesayuno",
+        "pk": 70,
+        "fields": {
+            "nombre": "Leche caliente descremada",
+            "categoria": "Bebidas calientes",
+            "unidad": "Taza"
+        }
+    }
+]

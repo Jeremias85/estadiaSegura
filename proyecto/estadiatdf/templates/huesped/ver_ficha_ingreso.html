@@ -1,0 +1,85 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm">
+    {% if not autorizado %}
+        <h1 class="text-center">Usted no est&aacute; autorizado</h1>
+    {% else %}
+        <h1 class="text-center">Ficha de ingreso</h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Nombre del hu&eacute;sped
+                    </p>
+                    <h2 class="h4resaltado">
+                        {{ ficha.nombre }} {{ ficha.apellido }}
+                    </h2>    
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Tipo de documento
+                    </p>
+                    <h2 class="h4resaltado">
+                        {{ ficha.tipo_documento }}
+                    </h2>       
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        N&uacute;mero de documento
+                    </p>
+                    <h2 class="h4resaltado">
+                        {{ ficha.numero_documento }}
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Nacionalidad
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if not ficha.nacionalidad %}
+                            <strong>Sin contestar</strong>
+                        {% else %}
+                            <strong>{{ ficha.nacionalidad }}</strong>
+                        {% endif %}
+                    </h4>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Fecha de nacimiento
+                    </p>
+                    <h2 class="h4resaltado">
+                        {{ ficha.fecha_nacimiento }}
+                    </h2>          
+                </div>
+                <div class="col-sm">
+                    <p class="ptitulo">
+                        Domicilio
+                    </p>
+                    <h2 class="h4resaltado">
+                        {% if not ficha.domicilio %}
+                            Sin contestar
+                        {% else %}
+                            {{ ficha.domicilio }}
+                        {% endif %}
+                    </h2>          
+                </div>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2">       
+            <a href="{% url 'modificarFichaIngreso' pk=ficha.id %}" class="btn btn-lg btn-block btn-success">Modificar Ficha de Ingreso</a>
+            {% if declaracionJurada %}
+                <a href="{% url 'verDJCovid' pk=declaracionJuradaId %}" class="btn btn-lg btn-block btn-success">Ver Declaraci&oacute;n Jurada Covid</a>
+            {% else %}
+                <a href="{% url 'crearDJCovid' %}" class="btn btn-lg btn-success" type="button">Nueva Declaración Jurada Covid</a>
+            {% endif %}
+            <a id="volver" href="{% url 'webCheckIn' %}" class="btn btn-lg btn-block btn-danger">Volver</a>
+        </div>
+    </div>
+</div>
+    {% endif %}
+
+
+{% endblock %}

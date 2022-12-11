@@ -1,0 +1,32 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm">
+        <h1 class="text-center">
+            Ficha de ingreso
+        </h1>
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for f in form %}
+                    <div class="mb-3 row">
+                        <div class="col-sm">
+                            {{ f.label }}
+                        </div>
+                        <div class="col-sm">
+                            {{ f }}
+                        </div>          
+                    </div>
+                    {% endfor %}
+        <div class="d-grid gap-2">       
+            <button type="submit" class="btn btn-lg btn-block btn-primary">Aceptar y continuar</button>
+            <a id="volver" href="javascript: history.go(-1)" class="btn btn-lg btn-block btn-danger">Cancelar</a>
+        </div>
+                </form>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm">
+        <h1 class="text-center">
+            Declaraci&oacute;n jurada Covid
+        </h1>
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Para responder, rellene el botón solamente en caso de que la respuesta sea afirmativa.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <form class="form-horizontal" method="POST" action="">
+                    {% csrf_token %}
+                    {% for f in form %}
+                        <div class="mb-3 row">
+                            <div class="col-12">
+                                {{ f.label }}
+                            </div>
+                            <div class="col">
+                                {{ f }}
+                            </div>          
+                        </div>
+                    {% endfor %}
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-lg btn-block btn-primary">Aceptar</button>
+                    <a id="volver" href="{% url 'webCheckIn' %}" class="btn btn-lg btn-block btn-danger">Cancelar</a>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

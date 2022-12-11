@@ -1,0 +1,57 @@
+{% extends "infuetur/base_index.html" %}
+
+{% block content %}
+
+{% load auth_extras %}
+
+    <div class="container-fluid">
+    {% if user.is_authenticated %}
+
+        {% if request.user|has_group:"AdminINFUETUR" %}
+            {% if notificacion %}
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Detalles de la notificaci&oacute;n</h1>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <p class="ptitulo">Tipo de notificaci&oacute;n</p>
+                                    <h4 class="h4resaltado">{{ notificacion.tipo_notificacion }}</h4>
+                                </div>
+                                <div class="col-sm">
+                                    <p class="ptitulo">Fecha</p>
+                                    <h4 class="h4resaltado">{{ notificacion.fecha }}</h4>
+                                </div>    
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <p class="ptitulo">T&iacute;tulo</p>
+                                    <h4 class="h4resaltado">{{ notificacion.titulo }}</h4>
+                                </div>
+                                <div class="col-sm">
+                                    <p class="ptitulo">Descripci&oacute;n</p>
+                                    <h4 class="h4resaltado">{{ notificacion.descripcion }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 row text-end">
+                        <div class="col-sm">    
+                            <a id="volver" href="javascript: history.go(-1)" class="btn btn-secondary">Volver</a>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            {% else %}
+                <p>No existe la notificaci&oacute;n</p>
+            {% endif %}
+        {% else %}
+                <h3>No tiene asignado ning&uacute;n alojamiento</h3>
+        {% endif %}
+    {% else %}
+        <p>No tiene acceso a este contenido, por favor ingrese con un usuario v&aacute;lido.</p>
+    {% endif %}
+    </div>
+
+{% endblock %}

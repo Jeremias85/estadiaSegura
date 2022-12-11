@@ -1,0 +1,52 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-sm">
+                {% if reserva %}
+                    <h1 class="text-center">Tarjeta de Ingreso R&aacute;pido</h1>
+                    <div class="card text-white bg-success">
+                        <div class="card-body">
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Hu&eacute;sped/es</p>
+                                <h2 class="h4resaltado">{{reserva.nombre_huesped}} x {{reserva.pax}}</h4>
+                            </div>
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Fecha de Check-in</p>
+                                <h2 class="h4resaltado">{{reserva.fecha_check_in}}</h4>
+                            </div>
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Fecha de Check-out</p>
+                                <h2 class="h4resaltado">{{reserva.fecha_check_out}}</h4>
+                            </div>
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Fecha de reserva</p>
+                                <h2 class="h4resaltado">{{reserva.fecha_reservado}}</h4>
+                            </div>                        
+                            {% if reserva.origen_reserva%}
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Origen de reserva</p>
+                                <h2 class="h4resaltado">{{reserva.origen_reserva}}</h4>
+                            </div>
+                            {% endif %}
+                            {% if reserva.codigo_reserva %}
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">C&oacute;digo de reserva</p>
+                                <h2 class="h4resaltado">{{reserva.codigo_reserva}}</h4>
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="d-grid gap-2">  
+                            <a id="volver" href="javascript: history.go(-1)" class="btn btn-lg btn-block btn-danger">Volver</a>
+                        </div> 
+                    </div>
+                {% else %}
+                    <h1 class="text-center">No tiene acceso a la aplicaci&oacute;n</h1>
+                {% endif %}
+            </div>
+        </div>
+{% endblock %}

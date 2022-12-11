@@ -1,0 +1,42 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                {% if reserva %}
+                <h1 class="text-center">Notificaciones</h1>
+                
+              
+                {% for n in notificaciones %}
+                <div class="card" onclick="clickDiv({{n.id}})" id="card-{{n.id}}" data-location="{% url 'fichaNotificacion' pk=n.id %}">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            {% if n.visto %}
+                            <span class="me-auto">{{ n.titulo|truncatechars:20 }}</span>
+                            <span>{{ n.fecha|date:"d/m/Y" }}</span>
+                            {% else %}
+                            <strong class="me-auto">{{ n.titulo|truncatechars:20 }}</strong>
+                            <strong>{{ n.fecha|date:"d/m/Y" }}</strong>
+                            {% endif %}
+                        </div>
+                        <p class="card-text">{{ n.descripcion|truncatechars:35 }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% else %}
+                    <h1 class="text-center">No tiene acceso a la aplicaci&oacute;n</h1>
+                {% endif %} 
+            </div>
+        
+        </div>
+    </div>
+<script>
+    function clickDiv(numero) {
+        window.location = $("#card-"+numero).data("location"); 
+        return false;
+    }
+</script>
+{% endblock %}

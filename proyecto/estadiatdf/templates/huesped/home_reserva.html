@@ -1,0 +1,102 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+
+<!--
+    <div class="container-fluid">
+-->
+        <div class="row">
+            <div class="col-sm">
+                {% if reserva %}
+                <!--Toast-->
+
+
+                
+                {% if notificaciones %}
+                    <div aria-live="polite" aria-atomic="true" class="position-relative">
+                        <div class="toast-container top-0 end-0">
+                    {% for n in notificaciones %}
+                    <!--<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+                    -->
+                    
+                            <div class="toast" id="toast-{{forloop.counter}}" role="alert" aria-live="assertive" aria-atomic="true" >
+                                <div class="toast-header">
+                                    <strong class="mr-auto">{{ n.titulo|truncatechars:30 }}</strong>
+                                    <small style="margin-left: auto">{{ n.fecha|date:"d/m/Y" }}</small>
+                                    <!--<button type="button" class="btn" onclick="cerrarToast({{forloop.counter}})" data-dismiss="toast" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>-->
+                                </div>
+                                <div class="toast-body">
+                                    <!--<span>{{ n.descripcion|truncatechars:40 }}</span>-->
+                                    <!--    
+                                    button type="button" class="btn btn-primary btn-sm">Ver notificaci&oacute;n</button>
+                                    -->
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-secondary btn-sm" onclick="cerrarToast({{forloop.counter}})">
+                                            Cerrar</button>
+                                        <a href="{% url 'fichaNotificacion' pk=n.id %}" class="btn btn-success btn-sm" type="button">Ver notificaci&oacute;n</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                    
+                    {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
+                    <h1 class="text-center">Hola {{reserva.nombre_huesped}}!</h1>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Alojamiento</p>
+                                <h2 class="h2resaltado">{{ reserva.alojamiento }}</h2>
+                            </div>
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Fecha Check-in</p>
+                                <h2 class="h4resaltado">{{ reserva.fecha_check_in }}</h2>
+                            </div>
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Fecha Check-out</p>
+                                <h2 class="h4resaltado">{{ reserva.fecha_check_out }}</h2>
+                            </div>
+                            <p></p>
+                            <div class="d-grid gap-2">
+                                <a href="{% url 'webCheckIn' %}" class="btn btn-lg btn-success" type="button">Web Check-in</a>
+                                <a href="{% url 'miDesayuno' %}" class="btn btn-lg btn-success" type="button">Mi desayuno</a>
+                                <!--<a href="#" class="btn btn-lg btn-success" type="button">Servicios</a>-->
+                                <a href="{% url 'listaNotificaciones' %}" class="btn btn-lg btn-success" type="button">Notificaciones</a>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <h1 class="text-center">No tiene acceso a la aplicaci&oacute;n</h1>
+                {% endif %}               
+                
+
+            </div>
+            
+        </div>
+
+<!--
+    </div>
+-->
+    
+    
+<script>
+    window.onload = (event)=> {
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function(toastEl) {
+        return new bootstrap.Toast(toastEl)
+    })
+    toastList.forEach(toast => toast.show())
+        }
+
+    function cerrarToast(numero) {
+        elemento = document.getElementById("toast-"+numero);
+        $(elemento).toast('hide');
+    }
+
+</script>
+{% endblock %}

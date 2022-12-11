@@ -1,0 +1,36 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+
+
+<!--
+    <div class="container-fluid">
+-->
+        <div class="row">
+            <div class="col-sm">
+                {% if reserva %}
+                    {% if notificacion %}    
+                    <h1 class="text-center">Notificaci&oacute;n</h1>
+                    <div class="card">
+                        <div class="card-body">
+                          <h4 class="card-title">{{ notificacion.titulo }}</h4>
+                          <h4 class="card-title">{{ notificacion.fecha }}</h4>
+                          <p class="card-text">{{ notificacion.descripcion }}</p>
+                          
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="d-grid gap-2">  
+                            <a id="volver" href="{% url 'listaNotificaciones' %}" class="btn btn-lg btn-block btn-danger">Volver</a>
+                        </div>
+                    </div>
+                    {% else %}
+                        <h1>No puede ver esta notificaci&oacute;n</h1>
+                    {% endif %}
+                {% else %}
+                    <h1 class="text-center">No tiene acceso a la aplicaci&oacute;n</h1>
+                {% endif %}
+            </div>
+        </div>
+
+{% endblock %}

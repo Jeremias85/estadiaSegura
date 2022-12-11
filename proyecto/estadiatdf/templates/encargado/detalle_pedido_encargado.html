@@ -1,0 +1,56 @@
+{% extends "infuetur/base_index.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+
+{% load auth_extras %}
+<div class="row">
+    <div class="col-sm-6">
+        <h1 class="text-center">Detalle del Pedido de Desayuno</h1>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="row">
+                            <p class="ptitulo">Nombre del hu&eacute;sped</p>
+                            <h4 class="h4resaltado">{{ pedidoDesayuno.reserva.nombre_huesped }}</h4>
+                        </div>
+                        <div class="row">
+                            <p class="ptitulo">Modalidad</p>
+                            <h4 class="h4resaltado">
+                                {% if pedidoDesayuno.takeaway %}
+                                Takeaway
+                                {% else %}
+                                Sala
+                                {% endif %}
+                            </h4>
+                        </div>
+                        <div class="row">
+                            <p class="ptitulo">Pedido</p>
+                            <ul>
+                            {% for item in itemsDesayuno %}
+                                <li><h4 class="h4resaltado">{{item.configuracionDesayuno.itemDesayuno.nombre}}  X  {{item.cantidad}}</h4></li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="row">
+                            <p class="ptitulo">Fecha del pedido</p>
+                            <h4 class="h4resaltado">{{ pedidoDesayuno.fechaDesayuno}} {{ pedidoDesayuno.horaDesayuno }}</h4>
+                        </div>
+                    </div>
+
+               
+                    
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 row text-end">
+            <div class="col-sm">    
+                <a id="volver" href="javascript: history.go(-1)" class="btn btn-secondary">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

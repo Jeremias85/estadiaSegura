@@ -1,0 +1,366 @@
+{% extends "bienvenida/base_bienvenida.html" %}
+
+{% block content %}
+{% load static %}
+<style>
+.bottom-left {
+    text-shadow: 0 0 2px #fff;}
+</style>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
+                     
+                    <div class="carousel-inner text-center">
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <img class="align-center" src="{% static 'assets/images/recepcion4.jpg' %}" alt="Snow" style="width:100%;">
+                                <!--
+                                <img src="{% static 'assets/images/faro.jpg' %}" alt="Snow" style="width:100%;">
+                                --> 
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h1><span class="badge bg-primary">ESTAD&Iacute;A SEGURA TDF</span></h1>
+                                </div>
+                                <!--<h3 class="fst-italic">Herramienta digital de gesti&oacute;n de</h3>
+                                <h3 class="fst-italic">servicios a hu&eacute;spedes de alojamientos</h3>
+                                <h3 class="fst-italic">de la provincia de Tierra del Fuego</h3>
+                                -->
+                            </div>
+                        </div>
+                    </div>         
+                </div>
+            </div>           
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="card m-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <h1 class="display-6 text-center">&#191;Qu&eacute; es Estad&iacute;a Segura TDF&#63;</h1>
+                            <div class="col-sm">
+                                <h3>
+                                    Es una herramienta digital que permite la gesti&oacute;n online de 
+                                    servicios a hu&eacute;spedes de alojamientos registrados de toda la 
+                                    provincia de Tierra del Fuego.
+                                </h3>
+                                <h3>
+                                    Estad&iacute;a Segura TDF se integra al Sistema Unificado de 
+                                    Informaci&oacute;n Tur&iacute;stica de Tierra del Fuego para obtener 
+                                    toda la informaci&oacute;n necesaria de los alojamientos 
+                                    tur&iacute;sticos de la provincia.
+                                </h3>
+                                <h3>
+                                    Todos los alojamientos registrados por el INFUETUR cuentan con la 
+                                    posibilidad de utilizar la herramienta para as&iacute; brindar 
+                                    m&aacute;s servicios al turista que nos visita.
+                                </h3>
+                            </div>
+                            <div class="col-sm-6 text-center">
+                                <img src="{% static 'assets/images/marco-pc.png' %}" alt="Alojamientos" style="width:85%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card m-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <h1 class="display-6 text-center" class="text-center">&#191;Qu&eacute; m&oacute;dulos integran 
+                                Estad&iacute;a Segura TDF&#63;</h1>
+                            <div class="col-sm">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div>
+                                            <div class="external-event bg-success-lighten text-success" data-class="bg-success">
+                                                <i class="uil uil-check-circle me-2 vertical-middle"></i>
+                                                <span class="h3">Check-in</span>
+                                            </div>
+                                            <h3>
+                                                Permite que un hu&eacute;sped pueda hacer el check-in on-line para agilizar
+                                                 su entrada al alojamiento. S&oacute;lo se tiene que cargar una ficha con 
+                                                 los datos personales y otra ficha informativa sobre COVID-19. 
+                                                 Adicionalmente se puede solicitar la tarjeta de <b>Ingreso 
+                                                    R&aacute;pido</b>.
+                                            </h3>
+                                            <h3>
+                                                El responsable verifica la informaci&oacute;n recibida y de confirmar se 
+                                                env&iacute;a la aceptaci&oacute;n de su solicitud de <b>Ingreso R&aacute;pido</b>.
+                                                 Esto posibilita disminuir los tiempos de permanencia de los hu&eacute;spedes en
+                                                  la recepci&oacute;n.
+                                            </h3>
+                                        </div>
+                                        <div>
+                                            <div class="external-event bg-info-lighten text-info" data-class="bg-info">
+                                                <i class="uil uil-coffee me-2 vertical-middle"></i>
+                                                <span class="h3">Desayuno</span>
+                                            </div>
+                                            <h3>
+                                                Se provee la funci&oacute;n de configuraci&oacute;n de 
+                                                desayuno, la cual consiste en poder incluir en una lista 
+                                                todos los &iacute;tems con los que cuenta el desayuno 
+                                                del alojamiento. El hu&eacute;sped al realizar el pedido 
+                                                utiliza esta lista para elegir sus preferencias.
+                                            </h3>
+                                            <h3>
+                                                Una vez realizado el pedido de desayuno este queda 
+                                                registrado en el sistema a fin de que pueda ser preparado 
+                                                por el alojamiento. 
+                                            </h3>
+                                        </div>
+                                        <div>
+                                            <div class="external-event bg-warning-lighten text-warning" data-class="bg-warning">
+                                                <i class="uil uil-bell me-2 vertical-middle"></i>
+                                                <span class="h3">Notificaciones</span>
+                                            </div>
+                                            <h3>
+                                                Se proporciona un m&oacute;dulo de notificaciones, permitiendo
+                                                 la recepci&oacute;n por parte del hu&eacute;sped de 
+                                                 notificaciones antes o durante su estancia, mejorando la 
+                                                 comunicaci&oacute;n entre el hu&eacute;sped y el alojamiento.
+                                            </h3>
+                                            <h3>
+                                                Este m&oacute;dulo tambi&eacute;n permite la recepci&oacute;n
+                                                 de notificaciones informativas del INFUETUR a los 
+                                                 alojamientos. Notificaciones de eventos culturales, apertura
+                                                  o cierre de circuitos tur&iacute;sticos entre otros.
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="align-center" src="{% static 'assets/images/mano-telefono.png' %}" alt="Alojamientos" style="width:90%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="card m-2">
+                    <div class="card-body">
+                        <div class="row">
+                            <h1 class="display-6 text-center" class="text-center">&#191;C&oacute;mo se accede a la aplicaci&oacute;n&#63;</h1>
+                            <div class="col-sm">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div>
+                                            <div class="alert bg-danger-lighten text-danger">
+                                                <i class="uil uil-book-reader me-2 vertical-middle"></i>
+                                                <span class="h3">Hu&eacute;sped</span>
+                                            </div>
+                                            <h3>Un responsable de un alojamiento registrado carga los datos b&aacute;sicos 
+                                                de una reserva. Autom&aacute;ticamente se genera un enlace de la reserva 
+                                                que se env&iacute;a al hu&eacute;sped.
+                                            </h3>
+                                            <h3>
+                                                El hu&eacute;sped ingresa al enlace sin necesidad de registrarse a la 
+                                                aplicaci&oacute;n.
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div>
+                                            <div class="alert bg-primary-lighten text-primary" data-class="bg-primary">
+                                                <i class="uil uil-building me-2 vertical-middle"></i>
+                                                <span class="h3">Responsable de un alojamiento</span>
+                                            </div>
+                                            <h3>
+                                                Un administrador del INFUETUR env&iacute;a un enlace de registro al alojamiento 
+                                                registrado.
+                                            </h3>
+                                            <h3>
+                                                El responsable del alojamiento ingresa al enlace y completa los datos de registro.
+                                            </h3>
+                                            <h3>
+                                                El responsable ya puede acceder al &aacute;rea de administraci&oacute;n de la 
+                                                aplicaci&oacute;n
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <div class="card m-2">
+                    <div class="card-body">
+                        <h1 class="display-6 text-center" class="text-center">Preguntas frecuentes</h1>
+                            <div class="row">
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <p class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <h1 class="display-6 text-center" class="text-center">&#191;Cómo hace el check-in online un hu&eacute;sped&#63;</h1>
+                                        </button>
+                                        </p>
+                                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <img src="{% static 'assets/images/huesped.jpg' %}" alt="Huesped" style="width:75%;">
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <h4>
+                                                            <ul class="conversation-list">
+                                                                <li class="clearfix">
+                                                                    <div class="conversation-text">
+                                                                        <div class="ctext-wrap">
+                                                                            <h3>En la pantalla principal el hu&eacute;sped aprieta el bot&oacute;n de 
+                                                                            <span class="badge bg-success">Web Check-in</span>, luego por cada 
+                                                                            uno de los integrantes de la reserva se completa una Ficha de 
+                                                                            ingreso con los datos personales y otra ficha informativa sobre el 
+                                                                            Covid-19
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="clearfix">
+                                                                    <div class="conversation-text">
+                                                                        <div class="ctext-wrap">
+                                                                            <h3>Una vez completadas las fichas de todos los integrantes de la 
+                                                                            reserva se aprieta el bot&oacute;n de <span class="badge bg-success">
+                                                                            Solicitud de Ingreso R&aacute;pido</span>
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <h4>
+                                                            <ul class="conversation-list">
+                                                                <li class="clearfix odd">
+                                                                    <div class="conversation-text">
+                                                                        <div class="ctext-wrap">
+                                                                            <h3 class="text-start">El responsable del alojamiento verifica los datos y al confirmar 
+                                                                            se env&iacute;a una notificaci&oacute;n autom&aacute;tica de 
+                                                                            aceptaci&oacute;n de la solicitud
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <img src="{% static 'assets/images/encargado2.jpg' %}" alt="Encargado" style="width:75%;">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <img src="{% static 'assets/images/huesped.jpg' %}" alt="Huesped" style="width:75%;">
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <h4>
+                                                            <ul class="conversation-list">
+                                                                <li class="clearfix">
+                                                                    <div class="conversation-text">
+                                                                        <div class="ctext-wrap">
+                                                                            <h3>
+                                                                                El hu&eacute;sped recibe la notificaci&oacute;n en la 
+                                                                                aplicaci&oacute;n de que ya cuenta con la <span class="badge bg-success">
+                                                                                Tarjeta de Ingreso R&aacute;pido</span>. Esta tarjeta acelera el proceso 
+                                                                                de check-in una vez se llega al alojamiento
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <p class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <h1 class="display-6 text-center" class="text-center">&#191;Cómo realiza un pedido de desayuno un hu&eacute;sped&#63;</h1>
+                                        </button>
+                                        </p>
+                                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <img src="{% static 'assets/images/huesped.jpg' %}" alt="Huesped" style="width:75%;">
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <h4>
+                                                            <ul class="conversation-list">
+                                                                <li class="clearfix">
+                                                                    <div class="conversation-text">
+                                                                        <div class="ctext-wrap">
+                                                                            <h3>En la pantalla principal el hu&eacute;sped aprieta el bot&oacute;n de 
+                                                                                <span class="badge bg-success">Mi desayuno</span>, luego el bot&oacute;n de
+                                                                                <span class="badge bg-success">Realizar pedido de desayuno</span>
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="clearfix">
+                                                                    <div class="conversation-text">
+                                                                        <div class="ctext-wrap">
+                                                                            <h3>Se elige la hora de desayuno, la modalidad (Take away o en el salón), 
+                                                                                un comentario opcional y los ítems del desayuno junto con la cantidad 
+                                                                                de cada uno
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="clearfix">
+                                                                    <div class="conversation-text">
+                                                                        <div class="ctext-wrap">
+                                                                            <h3>Una vez realizado el pedido se puede ver la ficha del mismo y de ser
+                                                                                 necesario modificarlo
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <h4>
+                                                            <ul class="conversation-list">
+                                                                <li class="clearfix odd">
+                                                                    <div class="conversation-text">
+                                                                        <div class="ctext-wrap">
+                                                                            <h3>Automáticamente le llega al responsable del alojamiento un nuevo 
+                                                                                pedido de desayuno con todos los datos para poder prepararlo
+                                                                            </h3>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <img src="{% static 'assets/images/encargado2.jpg' %}" alt="Huesped" style="width:75%;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+{% endblock %}

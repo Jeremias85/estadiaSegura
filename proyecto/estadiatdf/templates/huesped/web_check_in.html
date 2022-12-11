@@ -1,0 +1,90 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <h1 class="text-center">Web Check-in</h1>
+                {% if ingresoRapido %}
+                <div class="d-grid gap-2" id="solicitud">
+                    <button type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Solicitar Ingreso R&aacute;pido
+                    </button>
+                    <!--<a href="#" class="btn btn-lg btn-primary" type="button">Solicitar Ingreso Rápido</a>-->
+                </div>
+                <p></p>
+                {% elif not ingresoRapido and not solicitudEnviada %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    Para solicitar el <strong>Ingreso R&aacute;pido</strong> de la reserva debe llenar las fichas y las declaraciones juradas de todos los integrantes de la misma.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endif %}
+
+                {% if solicitudAceptada %}
+                <div class="d-grid gap-2" id="solicitud">
+                    <a href="{% url 'tarjetaIngreso' %}" class="btn btn-lg btn-success" type="button">Tarjeta de Ingreso R&aacute;pido</a>
+                    <p>
+                </div>
+                
+                {% endif %}
+                {% if nuevoIntegrante %}
+                <div class="d-grid gap-2">
+                    <a href="{% url 'crearFicha' %}" class="btn btn-lg btn-success" type="button">Nuevo integrante</a>
+                </div>
+                <p></p>
+                {% endif %}
+                
+                {% for f in fichas %}
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h3 class="text-center">{{ f.nombre }} {{ f.apellido }}</h3>
+                        <p class="text-center">{{ f.tipo_documento }} {{ f.numero_documento }}</p>
+                        <a href="{% url 'verFichaIngreso' pk=f.id %}" class="btn btn-lg btn-success" type="button">Ver ficha</a>
+                    </div>
+                </div>
+                <p></p>
+                {% endfor %}
+            </div>
+
+            
+
+
+        </div>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ingreso Rápido</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Su solicitud ha sido enviada con &eacute;xito. En breve recibir&aacute; la confirmaci&oacute;n del alojamiento.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-lg btn-primary" data-bs-dismiss="modal">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var myModalEl = document.getElementById('exampleModal')
+        myModalEl.addEventListener('show.bs.modal', function (event) {
+            $.ajax({
+            url: '/reserva/solicitarIR/{{reserva.id}}',
+            success: function () {
+                var sol = document.getElementById('solicitud');
+                
+                sol.innerHTML = '<div></div>';
+            }
+
+            //document.getElementById("solicitud").style.visibility = "hidden";
+            })
+        })
+        </script>
+
+{% endblock %}

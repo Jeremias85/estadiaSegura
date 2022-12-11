@@ -1,0 +1,51 @@
+{% extends "infuetur/base_index.html" %}
+
+{% block content %}
+
+    {% load i18n %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Bienvenido</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <p>En esta columna no cambia el idioma</p>
+                        <p>Hola, este es un ejemplo de i18n. El texto cambiar&aacute; dependiendo del idioma elegido.</p>
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Enviar e-mail a
+                            </button>
+                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <li><a class="dropdown-item" href="#">Email uno</a></li>
+                                    <li><a class="dropdown-item" href="#">Email dos</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm">
+                <h1>{% trans 'Bienvenido' %}</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <p>{% blocktrans %}En esta columna cambia el idioma{% endblocktrans %}</p>
+                        <p>{% blocktrans %}Hola, este es un ejemplo de i18n. El texto cambiar&aacute; dependiendo del idioma elegido.{% endblocktrans %}</p>
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                {% trans 'Enviar e-mail a' %}
+                            </button>
+                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <li><a class="dropdown-item" href="#">{% trans 'Email uno' %}</a></li>
+                                    <li><a class="dropdown-item" href="#">{% trans 'Email dos' %}</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

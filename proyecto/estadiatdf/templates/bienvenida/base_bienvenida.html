@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    {% block title %}<title>Estad&iacute;a Segura TDF</title>{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% load static %}
+
+    <!-- Datatables css -->
+    <link href="{% static 'assets/css/vendor/dataTables.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/vendor/responsive.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+
+    <!-- App favicon -->
+    <link rel="icon" href="{% static 'images/waia_favicon.ico' %}" type="image/x-icon">
+
+    <!-- third party css -->
+    <link href="{% static 'assets/css/vendor/fullcalendar.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- third party css end -->
+
+    <!-- App css -->
+    <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/app.min.css' %}" rel="stylesheet" type="text/css" id="app-style"/>
+    <link href="{% static 'css/estilo.css' %}" rel="stylesheet" type="text/css" id="app-style"/>
+
+    {% block scripts %}{% endblock %}
+    <!--
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+</head>
+<body>
+    <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    
+                    <div class="row">
+                        <div class="col-sm">
+                            <a href="{% url 'bienvenida'%}">ESTAD&Iacute;A<b>SEGURA</b>TDF</a>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                        <!--<ul class="navbar-nav ml-auto mt-2 mt-lg-0">-->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Acceso para Administraci&oacute;n</a>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+    {% load static %}
+
+    <!-- Footer Start -->
+
+        <footer class="bd-footer py-md-2 mt-5 bd-light text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>&copy; {% now "Y" %} Estad&iacute;a Segura TDF - Tierra del Fuego</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-md-end footer-links d-none d-md-block">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+    <!-- end Footer -->
+
+    <!-- bundle -->
+    <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+    <script src="{% static 'assets/js/app.min.js' %}"></script>
+
+    <!-- third party js -->
+    <script src="{% static 'assets/js/vendor/fullcalendar.min.js' %}"></script>
+    <!-- third party js ends -->
+
+    <!-- demo app -->
+    <script src="{% static 'assets/js/pages/demo.calendar.js' %}"></script>
+    <!-- end demo js-->
+
+    <!-- Datatables js -->
+    <script src="{% static 'assets/js/vendor/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/dataTables.bootstrap5.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/dataTables.responsive.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendor/responsive.bootstrap5.min.js' %}"></script>
+
+    <!-- Datatable Init js -->
+    <script src="{% static 'assets/js/pages/demo.datatable-init.js' %}"></script>
+    <script src="{% static 'assets/js/pages/demo.datatable-init2.js' %}"></script>
+    <script src="{% static 'assets/js/pages/demo.datatable-init3.js' %}"></script>
+    <script src="{% static 'assets/js/pages/demo.datatable-init4.js' %}"></script>
+    <script src="{% static 'assets/js/pages/demo.datatable-init-lista-completa.js' %}"></script>
+    
+
+    <script type="text/javascript" charset="utf8" src="{% static 'js/clickable.js' %}"></script>
+
+</body>
+</html>

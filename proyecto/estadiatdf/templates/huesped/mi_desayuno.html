@@ -1,0 +1,54 @@
+{% extends "huesped/base_index_huesped.html" %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm">
+                {% if reserva %}
+                <h1 class="text-center">Mi desayuno</h1>
+                    {% if pedirDesayuno %}
+                    <div class="d-grid gap-2" id="solicitud">
+                        <a href="{% url 'pedidoDesayuno' %}" type="button" class="btn btn-lg btn-success">
+                            Realizar pedido de desayuno
+                        </a>
+                    </div>
+                    <p></p>
+                    {% endif %}
+                    {% for f in fichasDesayunos %}
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Fecha desayuno</p>
+                                <h2 class="h2resaltado">{{ f.fechaDesayuno }}</h2>
+                            </div>
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Hora desayuno</p>
+                                <h2 class="h2resaltado">{{ f.horaDesayuno }}</h2>
+                            </div>
+                            <div class="col-sm text-center">
+                                <p class="ptitulo">Modalidad</p>
+                                {% if f.takeaway %}
+                                <h2 class="h2resaltado">Take away</h2>
+                                {% else %}
+                                <h2 class="h2resaltado">Desayuno en sal&oacute;n</h2>
+                                {% endif %} 
+                            </div>
+                            <a href="{% url 'verPedidoDesayuno' pk=f.id %}" class="btn btn-lg btn-success" type="button">Ver pedido</a>
+                        </div>
+                    </div>
+                    <p></p>
+                    {% endfor %}
+                <!--<p>Fecha actual: {{fechaActual}}</p>
+                <p>Hora actual: {{horaActual}}</p>
+                <p>Pedido: {{pedido}}</p>
+                <p>Fecha pedido: {{fechaPedido}}</p>
+                -->
+                {% else %}
+                    <h1 class="text-center">No tiene acceso a la aplicaci&oacute;n</h1>
+                {% endif%}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

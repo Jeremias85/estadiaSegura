@@ -1,0 +1,51 @@
+{% extends "infuetur/base_index.html" %}
+
+{% block content %}
+
+{% load auth_extras %}
+
+<div class="row">
+    <div class="col-sm-6">
+
+        {% if user.is_authenticated %}
+
+            {% if request.user|has_group:"Responsable" %}
+            <h1 class="text-center">Nueva reserva</h1>
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-horizontal" action="" method="post">
+                        {% csrf_token %}
+                        {% for f in form %}
+                            <div class="m-2 row">
+                                <div class="col-sm">
+                                    {{ f.label }}
+                                </div>
+                                <div class="col-sm">
+                                    {{ f }}<!-- If field estado de reserva-->
+                                </div>          
+                            </div>
+                        {% endfor %}
+                        <br>
+                </div>
+            </div>    
+            <div class="mb-3 row text-end">
+                <div class="col-sm">    
+                    <a id="volver" href="javascript: history.go(-1)" class="btn btn-danger">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+                
+                
+            </form>
+
+            {% else %}
+                <h3>No tiene asignado ning&uacute;n alojamiento</h3>
+            {% endif %}
+        
+        {% else %}
+            <p>No tiene acceso a este contenido, por favor ingrese con un usuario v&aacute;lido.</p>
+        {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

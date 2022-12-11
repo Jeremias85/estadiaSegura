@@ -1,0 +1,9 @@
+{% extends "bienvenida/base_bienvenida.html" %}
+
+{% block content %}
+    <div class="container-fluid">
+        <p>Log out exitoso!</p>
+
+        <a href="{% url 'login'%}">Haga click aquí para ingresar otra vez.</a>
+    </div>
+{% endblock %}
